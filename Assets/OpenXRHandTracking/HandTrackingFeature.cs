@@ -12,11 +12,10 @@ using AOT;
 
 #if UNITY_EDITOR
 [UnityEditor.XR.OpenXR.Features.OpenXRFeature(UiName = "Hand tracking Extension",
-    BuildTargetGroups = new[] { BuildTargetGroup.Standalone, BuildTargetGroup.WSA, BuildTargetGroup.Android },
     Company = "Joe M",
     Desc = "Enable hand tracking in unity",
     DocumentationLink = "https://docs.unity3d.com/Packages/com.unity.xr.openxr@0.1/manual/index.html",
-    OpenxrExtensionStrings = "XR_EXT_hand_tracking XR_FB_hand_tracking_mesh",
+    OpenxrExtensionStrings = "XR_EXT_hand_tracking",
     Version = "0.0.1",
     FeatureId = featureId)]
 #endif
@@ -26,12 +25,12 @@ public class HandTrackingFeature : OpenXRFeature
 
     public HandTrackingFeature()
     {
-        m_Singleton=this;
+        //m_Singleton=this;
     }
 
     ~HandTrackingFeature()
     {
-        m_Singleton=null;
+        //m_Singleton=null;
     }
     Vector3 PosToUnity(XrVector3f pos)
     {
@@ -233,7 +232,7 @@ public class HandTrackingFeature : OpenXRFeature
     protected override IntPtr HookGetInstanceProcAddr(IntPtr func)
     {
         mOldProc = (Type_xrGetInstanceProcAddr)Marshal.GetDelegateForFunctionPointer(xrGetInstanceProcAddr, typeof(Type_xrGetInstanceProcAddr));
-
+        if(!m_Singleton) m_Singleton = this;
         return GetCallback<Type_xrGetInstanceProcAddr>(new Type_xrGetInstanceProcAddr(xrGetInstanceProcAddr_HOOK_STATIC));
     }
 

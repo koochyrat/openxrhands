@@ -464,3 +464,6 @@ MonoBehaviour:
   ry: 0
   rz: 0
   mat: {fileID: 2100000, guid: a487e6ac273f1ab49ab3e42e6e23eb53, type: 2}
+  positions: []
+  orientations: []
+  joints: []

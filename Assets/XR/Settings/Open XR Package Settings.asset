@@ -170,7 +170,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -822,7 +822,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
@@ -983,7 +983,7 @@ MonoBehaviour:
   nameUi: Hand tracking Extension
   version: 0.0.1
   featureIdInternal: com.joemarshall.handtracking
-  openxrExtensionStrings: XR_EXT_hand_tracking XR_FB_hand_tracking_mesh
+  openxrExtensionStrings: XR_EXT_hand_tracking
   company: Joe M
   priority: 0
   required: 0
