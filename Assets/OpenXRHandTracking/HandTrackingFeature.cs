@@ -43,7 +43,6 @@ public class HandTrackingFeature : OpenXRFeature
         return new Quaternion(ori.x,ori.y,-ori.z,-ori.w);
     }
 
-
     public enum Hand_Index {L,R};
     public const string featureId = "com.joemarshall.handtracking";
 

@@ -18,6 +18,7 @@ public class HandGetter : MonoBehaviour
     public Vector3[] positions;
     public Quaternion[] orientations;
     public Transform[] joints;
+    public float[] radius;
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +30,7 @@ public class HandGetter : MonoBehaviour
         
         if(hf)
         {
-            float[] radius;
+            //float[] radius;
             hf.GetHandJoints(HandTrackingFeature.Hand_Index.R, out positions, out orientations, out radius);
             if (positions.Length == 0) return;
             if(joints == null || joints.Length == 0)
