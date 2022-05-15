@@ -10,8 +10,12 @@ public class HandGetter : MonoBehaviour
     public Transform[] joints;
     public float[] radius;
 
+    public HandTrackingFeature.Hand_Index HandIndex;
+
 #if DEBUG
     public GameObject DebugJointMesh;
+    public GameObject[] DebugJointMeshes;
+    public float DebugJointScale = 1f;
 #endif
 
     public GameObject WristObject;
@@ -47,41 +51,58 @@ public class HandGetter : MonoBehaviour
         
         if(hf)
         {
-            hf.GetHandJoints(HandTrackingFeature.Hand_Index.R, out positions, out orientations, out radius);
+            hf.GetHandJoints(HandIndex, out positions, out orientations, out radius);
             if (positions.Length == 0) return;
             if(joints == null || joints.Length == 0)
             {
                 joints = new Transform[positions.Length];
+
+                #if DEBUG
+                if(DebugJointMesh != null)
+                    DebugJointMeshes = new GameObject[positions.Length];
+                #endif
+
                 for(int i = 0; i < joints.Length;i++)
                 {
                     joints[i] = new GameObject("Joint").transform;
                     joints[i].parent = transform;
 
                     #if DEBUG
-                        if(DebugJointMesh != null)
+                        if(DebugJointMeshes != null && DebugJointMeshes.Length > i)
                         {
                             GameObject obj = Instantiate(DebugJointMesh);
-                            obj.transform.localScale = Vector3.one * radius[i] * 10;
                             obj.transform.parent = joints[i];
                             obj.transform.localPosition = Vector3.zero;
                             obj.transform.localRotation = Quaternion.identity;
+                            DebugJointMeshes[i] = obj;
                         }
                     #endif
                 }
             }
-            
+
+
             // Transform orientations back into SteamVR skeleton space
-            orientations[1] = orientations[1] * Quaternion.Euler(0, 0, 90); // Wrist is aligned to a different axis.. Don't ask me why
+            if (HandIndex == HandTrackingFeature.Hand_Index.L)
+                orientations[1] = orientations[1] * Quaternion.Euler(0, 0, -90); // Wrist is aligned to a different axis.. Don't ask me why
+            else
+                orientations[1] = orientations[1] * Quaternion.Euler(0, 0, 90);
+
 
             for (int i = 2; i < orientations.Length; i++)
             {
                 orientations[i] = orientations[i] * Quaternion.Euler(0, -90, 0);
             }            
-
+            
             for (int i = 0; i < positions.Length; i++)
             {
                 joints[i].transform.position = positions[i];
                 joints[i].transform.rotation = orientations[i];
+
+                #if DEBUG
+                if (DebugJointMeshes != null && DebugJointMeshes.Length > i)
+                    DebugJointMeshes[i].transform.localScale = Vector3.one * radius[i] * DebugJointScale;
+                #endif
+
                 switch (i)
                 {
                     case 1: //wrist
